@@ -7,24 +7,43 @@ function Services() {
     const [activeIndex, setActiveIndex] = useState<number>(0);
     const [imagePosition, setImagePosition] = useState<number>(0);
     const [isMdScreen, setIsMdScreen] = useState(false);
-    const [servicesData, setServicesData] = useState<any>(null);
+    const servicesData = {
+        number: "02",
+        name: "Our Mandate",
+        heading: "What We Do",
+        description: "Preserving and presenting the history of African liberation through artifacts, research, exhibitions, and public engagement.",
+        data: [
+            {
+                id: 1,
+                image: "/images/content1.png",
+                heading: "Curate Exhibitions",
+                descp: "Showcasing the diverse liberation movements and milestones across the continent."
+            },
+            {
+                id: 2,
+                image: "/images/content2.png",
+                heading: "Preserve Artifacts",
+                descp: "Protecting physical history and interpreting objects tied to the liberation struggle."
+            },
+            {
+                id: 3,
+                image: "/images/content3.png",
+                heading: "Educational Programs",
+                descp: "Hosting tours, public talks, and learning experiences for all generations."
+            },
+            {
+                id: 4,
+                image: "/images/content4.png",
+                heading: "Research Support",
+                descp: "Facilitating documentation and scholarly work on Pan-African heritage."
+            },
+        ]
+    };
 
     useEffect(() => {
         const checkScreenSize = () => setIsMdScreen(window.innerWidth >= 768);
         checkScreenSize();
         window.addEventListener("resize", checkScreenSize);
-
-        const fetchData = async () => {
-            try {
-                const res = await fetch('/api/page-data')
-                if (!res.ok) throw new Error('Failed to fetch')
-                const data = await res.json()
-                setServicesData(data?.servicesData)
-            } catch (error) {
-                console.error('Error fetching services:', error)
-            }
-        }
-        fetchData()
 
         return () => window.removeEventListener("resize", checkScreenSize);
     }, []);
@@ -55,17 +74,17 @@ function Services() {
                         <div className="flex flex-col xl:flex xl:flex-row items-start gap-8">
                             <div className="flex items-center py-3 gap-4 md:gap-8 w-full max-w-xl">
                                 <span className="bg-primary py-1.5 px-2.5 text-base font-medium rounded-full dark:text-secondary">
-                                    {servicesData?.number}
+                                    {servicesData.number}
                                 </span>
                                 <div className="h-px w-16 bg-white/12" />
                                 <p className="text-base font-medium text-secondary bg-white py-1.5 px-4 rounded-full">
-                                    {servicesData?.name}
+                                    {servicesData.name}
                                 </p>
                             </div>
                             <div className="flex flex-col gap-11">
                                 <div className="flex flex-col gap-5">
-                                    <h2 className="max-w-3xl text-white">{servicesData?.heading}</h2>
-                                    <p className="max-w-2xl text-white/70">{servicesData?.description}</p>
+                                    <h2 className="max-w-3xl text-white">{servicesData.heading}</h2>
+                                    <p className="max-w-2xl text-white/70">{servicesData.description}</p>
                                 </div>
                             </div>
                         </div>
@@ -76,9 +95,9 @@ function Services() {
                                     className={`relative md:absolute md:right-0 xl:left-0 transition-all duration-300 z-10 h-80`}
                                     style={isMdScreen ? { top: `${imagePosition}px`, transform: "translateY(-40%)" } : {}}
                                 >
-                                    {servicesData?.data[activeIndex]?.image && (
+                                    {servicesData.data[activeIndex]?.image && (
                                         <Image
-                                            src={servicesData?.data[activeIndex]?.image}
+                                            src={servicesData.data[activeIndex]?.image}
                                             alt="Service Image"
                                             width={400}
                                             height={250}
@@ -90,7 +109,7 @@ function Services() {
 
                             <div className="w-full flex flex-col gap-16">
                                 <div>
-                                    {servicesData?.data.map((value: any, index: any) => (
+                                    {servicesData.data.map((value: any, index: any) => (
                                         <div
                                             key={index}
                                             onMouseEnter={(e) => handleMouseEnter(index, e)}

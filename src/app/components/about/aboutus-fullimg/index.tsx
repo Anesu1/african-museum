@@ -1,23 +1,17 @@
 "use client";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import Marquee from "react-fast-marquee";
 
 const AboutusFullimg = () => {
-     const [servicesData, setServicesData] = useState<any>(null);
-    useEffect(() => {
-            const fetchData = async () => {
-                try {
-                    const res = await fetch('/api/page-data')
-                    if (!res.ok) throw new Error('Failed to fetch')
-                    const data = await res.json()
-                    setServicesData(data?.servicesSliderData)
-                } catch (error) {
-                    console.error('Error fetching services:', error)
-                }
-            }
-            fetchData()
-        }, [])
+    const servicesData = [
+        "Liberation Movements",
+        "Oral Histories",
+        "Freedom Radio",
+        "Women in Resistance",
+        "Solidarity Networks",
+        "Youth and Education",
+        "Memorial Gardens"
+    ];
     return (
         <section>
             <div className="w-full h-50vh lg:h-80vh">
@@ -31,7 +25,7 @@ const AboutusFullimg = () => {
             </div>
             <div className="bg-primary flex">
                 <Marquee autoFill={true}>
-                {servicesData?.map((value:any, index:any) => {
+                {servicesData.map((value:any, index:any) => {
                     return (
                         <div key={index} className="flex items-center py-6 gap-6 pr-6 md:pr-10 md:gap-10">
                             <h4 className="dark:text-secondary">{value}</h4>

@@ -11,7 +11,6 @@ import Logo from "../logo";
 const Header = () => {
     const { data: session } = useSession();
     const [user, setUser] = useState<{ user: any } | null>(null);
-    const [menuData, setMenuData] = useState<any>(null);
     const [menuOpen, setMenuOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false); // Track closing animation
     const [sticky, setSticky] = useState(false);
@@ -40,28 +39,24 @@ const Header = () => {
     };
 
     // Close menu with animation when clicking outside
+    const menuData = [
+        { id: 1, title: "Home", path: "/", newTab: false },
+        { id: 2, title: "About", path: "/about", newTab: false },
+        { id: 3, title: "Exhibitions", path: "/projects", newTab: false },
+        { id: 4, title: "News", path: "/blog", newTab: false },
+        { id: 5, title: "Visit", path: "/contact", newTab: false },
+    ];
+
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-                setIsClosing(true); // Start closing animation
+                setIsClosing(true);
                 setTimeout(() => {
-                    setMenuOpen(false); // Hide menu after animation
+                    setMenuOpen(false);
                     setIsClosing(false);
-                }, 300); // Adjust timing to match animation duration
+                }, 300);
             }
         };
-
-        const fetchData = async () => {
-            try {
-                const res = await fetch('/api/layout-data')
-                if (!res.ok) throw new Error('Failed to fetch')
-                const data = await res.json()
-                setMenuData(data?.MenuData)
-            } catch (error) {
-                console.error('Error fetching services:', error)
-            }
-        }
-        fetchData()
 
         if (menuOpen) {
             document.addEventListener("mousedown", handleClickOutside);

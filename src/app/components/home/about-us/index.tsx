@@ -1,23 +1,14 @@
 "use client";
 import Image from "next/image";
 import StarRating from "../../shared/star-rating";
-import { useEffect, useState } from "react";
 
 function Aboutus() {
-    const [avatarList, setAvatarList] = useState<any>(null);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch('/api/page-data')
-                if (!res.ok) throw new Error('Failed to fetch')
-                const data = await res.json()
-                setAvatarList(data?.avatarList)
-            } catch (error) {
-                console.error('Error fetching services:', error)
-            }
-        }
-        fetchData()
-    }, [])
+    const avatarList = [
+        { image: "/images/avatar/avatar_1.jpg", title: "Oral History" },
+        { image: "/images/avatar/avatar_2.jpg", title: "Liberation Archive" },
+        { image: "/images/avatar/avatar_3.jpg", title: "Community Memory" },
+        { image: "/images/avatar/avatar_4.jpg", title: "Research Fellows" },
+    ];
 
     return (
         <section className="py-20 md:py-40 dark:bg-darkblack">
@@ -80,7 +71,7 @@ function Aboutus() {
                                 </div>
                                 <div>
                                     <ul className='avatar flex flex-row items-center'>
-                                        {avatarList?.map((items: any, index: any) => (
+                                        {avatarList.map((items: any, index: any) => (
                                             <li key={index} className='-mr-2 z-1 avatar-hover:ml-2'>
                                                 <Image src={items.image} alt='Image' width={44} height={44} quality={100} className='rounded-full border-2 border-secondary' />
                                             </li>

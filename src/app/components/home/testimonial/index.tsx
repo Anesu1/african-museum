@@ -1,23 +1,28 @@
 "use client";
 import Image from "next/image";
 import StarRating from "../../shared/star-rating";
-import { useEffect, useState } from "react";
 
 function Testimonial() {
-    const [testimonialData, setTestimonialData] = useState<any>(null);
-    useEffect(() => {
-          const fetchData = async () => {
-            try {
-              const res = await fetch('/api/page-data')
-              if (!res.ok) throw new Error('Failed to fetch')
-              const data = await res.json()
-              setTestimonialData(data?.testimonialData)
-            } catch (error) {
-              console.error('Error fetching services:', error)
-            }
-          }
-          fetchData()
-        }, [])
+    const testimonialData = {
+        data_1: {
+            preTitle: "Voices",
+            title: "A powerful monument to our shared history and future.",
+            author: "Visitor",
+            company: "Harare"
+        },
+        data_2: {
+            preTitle: "Voices",
+            title: "Every artifact tells a story of courage and resilience.",
+            author: "Historian",
+            company: "Pan-African Archives"
+        },
+        data_3: {
+            preTitle: "Voices",
+            title: "An inspiring destination for anyone who loves Africa.",
+            author: "Guest",
+            company: "International"
+        },
+    };
         
     return (
         <section className="bg-lightgray dark:bg-secondary py-20 md:py-40">

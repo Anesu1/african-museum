@@ -2,32 +2,26 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const Contact = (props: { contactdataNumber: string }) => {
     const { contactdataNumber } = props;
     const [submitted, setSubmitted] = useState(false);
     const [loader, setLoader] = useState(false);
-    const [contactData, setContactData] = useState<any>(null);
+    const contactData = {
+        keypoint: ["Open Tuesday to Sunday", "Located at Liberation City", "Guided tours and school visits"],
+        managerProfile: {
+            image: "/images/avatar/avatar_1.jpg",
+            name: "Visitor Services",
+            position: "Museum of African Liberation"
+        }
+    };
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         message: ""
     });
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch('/api/page-data')
-                if (!res.ok) throw new Error('Failed to fetch')
-                const data = await res.json()
-                setContactData(data?.contactData)
-            } catch (error) {
-                console.error('Error fetching services:', error)
-            }
-        }
-        fetchData()
-    }, [])
     const reset = () => {
         formData.name = "";
         formData.email = "";

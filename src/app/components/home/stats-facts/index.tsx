@@ -4,34 +4,23 @@ import Image from "next/image";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 import NavigationLink from "../../shared/navigation-link";
-import { useEffect, useState } from "react";
 
 function StatsFacts() {
-    const [statsFactData, setStatsFactData] = useState<any>(null);
+    const statsFactData = {
+        number: "01",
+        name: "Welcome",
+        heading: "Museum of African Liberation",
+        description: "A continental project dedicated to the liberation of African countries - preserving memory, honoring sacrifice, and inspiring future generations.",
+        scoreData: [
+            { number: 54, numberValue: "", scoreDescp: "African Nations Represented" },
+            { number: 1, numberValue: "", scoreDescp: "Unified Continent" },
+            { number: 500, numberValue: "+", scoreDescp: "Historical Artifacts Preserved" },
+        ]
+    };
     const { ref, inView } = useInView({
         triggerOnce: true,
         threshold: 0.5,
     });
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch('/api/page-data')
-                if (!res.ok) throw new Error('Failed to fetch')
-                const data = await res.json()
-                if (data) {
-                    setStatsFactData(data?.statsFactData)
-                }
-                else{
-                    console.error('No data found for statsFactData')
-                }
-            } catch (error) {
-                console.error('Error fetching services:', error)
-            }
-        }
-        fetchData()
-    }, [])
-
 
     return (
         <section className="relative bg-white dark:bg-secondary overflow-hidden">
@@ -39,17 +28,17 @@ function StatsFacts() {
                 <div className="container">
                     <div className="flex flex-col xl:flex xl:flex-row items-start gap-8">
                         <div className="flex items-center py-3 gap-4 md:gap-8 w-full max-w-xl">
-                            <span className="bg-primary py-1.5 px-2.5 text-base font-medium rounded-full dark:text-secondary">{statsFactData && statsFactData?.number}</span>
+                            <span className="bg-primary py-1.5 px-2.5 text-base font-medium rounded-full dark:text-secondary">{statsFactData.number}</span>
                             <div className="h-px w-16 bg-black/12 dark:bg-white/12" />
-                            <p className="section-bedge py-1.5 px-4 rounded-full">{statsFactData && statsFactData?.name}</p>
+                            <p className="section-bedge py-1.5 px-4 rounded-full">{statsFactData.name}</p>
                         </div>
                         <div className="flex flex-col gap-11">
                             <div className="flex flex-col gap-5 ">
-                                <h2 className="max-w-3xl">{statsFactData?.heading}</h2>
-                                <p className="max-w-xl text-secondary/70 dark:text-white/70">{statsFactData?.description}</p>
+                                <h2 className="max-w-3xl">{statsFactData.heading}</h2>
+                                <p className="max-w-xl text-secondary/70 dark:text-white/70">{statsFactData.description}</p>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                                {statsFactData && statsFactData?.scoreData?.map((value: any, index: any) => {
+                                {statsFactData.scoreData.map((value: any, index: any) => {
                                     return (
                                         <div ref={ref} key={index} className="flex flex-col gap-5 pt-4 md:pt-11 border-t border-secondary/12 dark:border-white/12">
                                             <h3 className="text-5xl md:text-6xl Xxl:text-7xl font-bold">

@@ -2,25 +2,38 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
 
 const Team = (props: { teamdataNumber: string }) => {
     const { teamdataNumber } = props;
-    const [teamData, setTeamData] = useState<any>(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const res = await fetch('/api/page-data')
-                if (!res.ok) throw new Error('Failed to fetch')
-                const data = await res.json()
-                setTeamData(data?.teamData)
-            } catch (error) {
-                console.error('Error fetching services:', error)
-            }
-        }
-        fetchData()
-    }, [])
+    const teamData = {
+        number: "03",
+        data: [
+            {
+                image: "/images/pics/483107247_642363311881775_1285355128483945232_n.webp",
+                name: "Museum Leadership",
+                position: "Curatorial Team",
+                socialLinks: []
+            },
+            {
+                image: "/images/pics/560353133_807801805337924_3567191999299928840_n.webp",
+                name: "Research Department",
+                position: "History and Archives",
+                socialLinks: []
+            },
+            {
+                image: "/images/pics/571185178_821002997351138_497319151694274873_n.webp",
+                name: "Education",
+                position: "Public Programs",
+                socialLinks: []
+            },
+            {
+                image: "/images/pics/571237964_821003204017784_8113109740348631783_n.webp",
+                name: "Community",
+                position: "Outreach",
+                socialLinks: []
+            },
+        ]
+    };
 
     return (
         <section className="dark:bg-darkblack py-20 md:py-40">
@@ -42,7 +55,7 @@ const Team = (props: { teamdataNumber: string }) => {
                         </div>
 
                         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-7">
-                            {teamData?.data?.map((data: any, index: any) => {
+                            {teamData.data.map((data: any, index: any) => {
                                 return (
                                     <div key={index} className="group flex flex-col gap-6">
                                         <div className="relative">

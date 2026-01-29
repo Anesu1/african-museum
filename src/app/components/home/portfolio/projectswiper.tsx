@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
@@ -14,13 +13,32 @@ type Project = {
 };
 
 const Projectswiper = () => {
-    const [projects, setProjects] = useState<Project[]>([]);  
-
-    useEffect(() => {
-        fetch("/api/projects")
-            .then((res) => res.json())
-            .then((data) => setProjects(data));
-    }, []);
+    const projects: Project[] = [
+        {
+            title: "Path to Independence",
+            slug: "path-to-independence",
+            ScopeOfWork: ["Curatorial Research", "Artifact Conservation", "Interpretive Design"],
+            coverImage: "/images/content1.png"
+        },
+        {
+            title: "Women in Resistance",
+            slug: "women-in-resistance",
+            ScopeOfWork: ["Oral Histories", "Community Archives", "Exhibition Design"],
+            coverImage: "/images/content2.png"
+        },
+        {
+            title: "Freedom Radio",
+            slug: "freedom-radio",
+            ScopeOfWork: ["Audio Archive", "Digital Restoration", "Media Exhibit"],
+            coverImage: "/images/content3.png"
+        },
+        {
+            title: "Solidarity Networks",
+            slug: "solidarity-networks",
+            ScopeOfWork: ["Regional Mapping", "Archive Curation", "Narrative Design"],
+            coverImage: "/images/content4.png"
+        },
+    ];
 
     return (
         <Swiper

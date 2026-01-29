@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 type Blog = {
     title: string;
@@ -10,13 +9,26 @@ type Blog = {
     coverImage: string;
 };
 const Resources = () => {
-    const [blogs, setblogs] = useState<Blog[]>([]);
-
-    useEffect(() => {
-        fetch("/api/blog")
-            .then((res) => res.json())
-            .then((data) => setblogs(data.slice(0, 3)));
-    }, []);
+    const blogs: Blog[] = [
+        {
+            title: "Community Day at Liberation City",
+            slug: "a-campaign-that-connects",
+            date: "2025-11-20",
+            coverImage: "/images/content1.png"
+        },
+        {
+            title: "Opening the Liberation Archive",
+            slug: "recognized-for-design",
+            date: "2026-01-12",
+            coverImage: "/images/content3.png"
+        },
+        {
+            title: "Restoration Lab Update",
+            slug: "the-modern-lens-perspectives-on-culture-trends",
+            date: "2026-01-05",
+            coverImage: "/images/content4.png"
+        },
+    ];
 
     return (
         <section className="bg-lightgray dark:bg-secondary py-20 md:py-40">
