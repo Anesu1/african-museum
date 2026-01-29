@@ -50,25 +50,25 @@ const servicesData = {
     data: [
         {
             id: 1,
-            image: "/images/home/services/services_1.png",
+            image: "/images/content1.png",
             heading: "Curate Exhibitions",
             descp: "Showcasing the diverse liberation movements and milestones across the continent."
         },
         {
             id: 2,
-            image: "/images/home/services/services_2.png",
+            image: "/images/content2.png",
             heading: "Preserve Artifacts",
             descp: "Protecting physical history and interpreting objects tied to the liberation struggle."
         },
         {
             id: 3,
-            image: "/images/home/services/services_3.png",
+            image: "/images/content3.png",
             heading: "Educational Programs",
             descp: "Hosting tours, public talks, and learning experiences for all generations."
         },
         {
             id: 4,
-            image: "/images/home/services/services_4.png",
+            image: "/images/content4.png",
             heading: "Research Support",
             descp: "Facilitating documentation and scholarly work on Pan-African heritage."
         },
@@ -100,25 +100,25 @@ const teamData = {
     number: '03',
     data: [
         {
-            image: "/images/home/team/team-img-1.png",
+            image: "/images/pics/483107247_642363311881775_1285355128483945232_n.webp",
             name: "Museum Leadership",
             position: "Curatorial Team",
             socialLinks: []
         },
         {
-            image: "/images/home/team/team-img-2.png",
+            image: "/images/pics/560353133_807801805337924_3567191999299928840_n.webp",
             name: "Research Department",
             position: "History and Archives",
             socialLinks: []
         },
         {
-            image: "/images/home/team/team-img-3.png",
+            image: "/images/pics/571185178_821002997351138_497319151694274873_n.webp",
             name: "Education",
             position: "Public Programs",
             socialLinks: []
         },
         {
-            image: "/images/home/team/team-img-4.png",
+            image: "/images/pics/571237964_821003204017784_8113109740348631783_n.webp",
             name: "Community",
             position: "Outreach",
             socialLinks: []
@@ -150,11 +150,11 @@ const pricingData = {
         },
     ],
     partnerLogo: [
-        { light: "/images/home/pricing/partner-1.svg", dark: "/images/home/pricing/partner-dark-1.svg" },
-        { light: "/images/home/pricing/partner-2.svg", dark: "/images/home/pricing/partner-dark-2.svg" },
-        { light: "/images/home/pricing/partner-3.svg", dark: "/images/home/pricing/partner-dark-3.svg" },
-        { light: "/images/home/pricing/partner-4.svg", dark: "/images/home/pricing/partner-dark-4.svg" },
-        { light: "/images/home/pricing/partner-5.svg", dark: "/images/home/pricing/partner-dark-5.svg" },
+        { light: "/images/logo.png", dark: "/images/logo-1.png" },
+        { light: "/images/africa.png", dark: "/images/africa.png" },
+        { light: "/images/pattern.png", dark: "/images/pattern.png" },
+        { light: "/images/group.png", dark: "/images/group.png" },
+        { light: "/images/right.png", dark: "/images/right.png" },
     ],
 };
 

@@ -9,7 +9,7 @@ export default function Page() {
     return (
         <main>
             <Herobanner
-                bannerimage="/images/about-us/banner/aboutus-banner.png"
+                bannerimage="/images/aboutBG.png"
                 heading="Research Resources"
                 desc="Access <span>archives and guides</span> for scholars, students, and community partners." />
             <section className="py-16 md:py-24 dark:bg-darkblack">

@@ -9,7 +9,7 @@ export default function Page() {
     return (
         <main>
             <Herobanner
-                bannerimage="/images/blog/banner/blog_banner.png"
+                bannerimage="/images/content1.png"
                 heading="News"
                 desc="Updates, <span>exhibitions, and programs</span> from the Museum of African Liberation." />
             <BlogList/>

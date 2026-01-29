@@ -9,7 +9,7 @@ export default function Page() {
     return (
         <main>
             <Herobanner
-                bannerimage="/images/projects/banner/projects-banner.png"
+                bannerimage="/images/content2.png"
                 heading="Exhibitions"
                 desc="Explore <span>featured galleries</span> and permanent collections." />
             <ProjectList />

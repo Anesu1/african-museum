@@ -9,7 +9,7 @@ export default function Page() {
     return (
         <main>
             <Herobanner
-                bannerimage="/images/privacy-policy/privacy-policy.png"
+                bannerimage="/images/pattern.png"
                 heading="Terms and Conditions"
                 desc="Understand the <span>visitor guidelines</span> and website terms." />
             <TermsAndCondition />

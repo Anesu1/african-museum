@@ -71,7 +71,7 @@ function Aboutus() {
                         </div>
                         <div className="flex flex-col gap-5 2xl:gap-7">
                             <div className="w-full h-full relative">
-                                <Image src={"/images/home/services/services_2.png"} alt="Museum exhibit" width={340} height={215} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                <Image src={"/images/content2.png"} alt="Museum exhibit" width={340} height={215} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                             </div>
                             <div className="bg-secondary dark:bg-lightgray/10 p-5 2xl:p-7 flex flex-col justify-between gap-8">
                                 <div>

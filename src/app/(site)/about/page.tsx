@@ -13,7 +13,7 @@ export default function Page() {
     return (
         <main>
             <Herobanner
-                bannerimage="/images/about-us/banner/aboutus-banner.png"
+                bannerimage="/images/aboutBG.png"
                 heading="About us"
                 desc="Learn about our <span>mission and legacy</span> preserving Africa's liberation history." />
             <AboutusDetail />
