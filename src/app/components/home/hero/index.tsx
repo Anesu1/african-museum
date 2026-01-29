@@ -8,15 +8,14 @@ function HeroSection() {
         <ParallaxProvider>
             <Parallax speed={-25}>
                 <section className="relative flex items-end text-white bg-black h-full min-h-screen">
-                    <video
+                    <Image
                         className="absolute top-0 left-0 w-full h-full object-cover"
-                        loop
-                        autoPlay
-                        muted
-                        playsInline
-                    >
-                        <source src="/video/banner-video.mp4" type="video/mp4" />
-                    </video>
+                        src="/images/banner.jpeg"
+                        alt="Museum of African Liberation"
+                        width={1920}
+                        height={1080}
+                        priority
+                    />
 
                     <div className="absolute inset-0 bg-black/50"></div>
 
