@@ -1,0 +1,17 @@
+import React from "react";
+import { Metadata } from "next";
+import ForgotPassword from "@/app/components/auth/forgot-password";
+
+export const metadata: Metadata = {
+  title: "Forgot Password | Museum of African Liberation",
+};
+
+const ForgotPasswordPage = () => {
+  return (
+    <>
+      <ForgotPassword />
+    </>
+  );
+};
+
+export default ForgotPasswordPage;

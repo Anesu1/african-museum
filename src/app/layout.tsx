@@ -1,33 +1,51 @@
-import React from 'react';
-import type { Metadata, Viewport } from 'next';
-import '../styles/index.css';
+"use client";
+import { Manrope } from "next/font/google";
+import "./globals.css";
+import { SessionProvider } from "next-auth/react";
+import { ThemeProvider } from "next-themes";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import Header from "./components/layout/header";
+import Footer from "./components/layout/footer";
+import ScrollToTop from "./components/scroll-to-top";
 
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-};
-
-export const metadata: Metadata = {
-  title: 'Next.js with Tailwind CSS',
-  description: 'A boilerplate project with Next.js and Tailwind CSS',
-  icons: {
-    icon: [
-      { url: '/favicon.ico', type: 'image/x-icon' }
-    ],
-  },
-};
+const manrope = Manrope({
+  subsets: ["latin"],
+});
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body>{children}
+  const pathname = usePathname();
+  const [is404, setIs404] = useState(false);
 
-        <script type="module" async src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Fafricanli5716back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.12" />
-        <script type="module" defer src="https://static.rocket.new/rocket-shot.js?v=0.0.2" /></body>
+  useEffect(() => {
+    fetch(pathname, { method: "HEAD" }).then((res) => {
+      if (res.status === 404) {
+        setIs404(true);
+      } else {
+        setIs404(false);
+      }
+    });
+  }, [pathname]);
+
+  const excludedRoutes = ["/signin", "/signup", "/forgot-password","/documentation"];
+  const hideLayout = excludedRoutes.includes(pathname) || is404;
+
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <body className={manrope.className}>
+        <SessionProvider>
+          <ThemeProvider attribute="class" enableSystem={false} defaultTheme="light">
+            {!hideLayout && <Header />}
+            {children}
+            {!hideLayout && <Footer />}
+            <ScrollToTop />
+          </ThemeProvider>
+        </SessionProvider>
+      </body>
     </html>
   );
 }
