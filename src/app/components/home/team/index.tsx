@@ -49,7 +49,7 @@ const Team = (props: { teamdataNumber: string }) => {
                             <div className="flex flex-col gap-11">
                                 <div className="flex flex-col gap-5 ">
                                     <h2 className="max-w-3xl">Museum Leadership</h2>
-                                    <p className="max-w-2xl text-secondary/70 dark:text-white/70">Guided by a distinguished council of curators, historians, and administrators committed to Pan-African heritage.</p>
+                                    <p className="max-w-2xl text-black/70 dark:text-white/70">Guided by a distinguished council of curators, historians, and administrators committed to Pan-African heritage.</p>
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@ const Team = (props: { teamdataNumber: string }) => {
                                         </div>
                                         <div>
                                             <h4>{data?.name}</h4>
-                                            <span className="text-secondary/70 dark:text-white/70">{data?.position}</span>
+                                            <span className="text-black/70 dark:text-white/70">{data?.position}</span>
                                         </div>
                                     </div>
                                 )

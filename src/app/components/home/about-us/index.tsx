@@ -25,8 +25,8 @@ function Aboutus() {
                             </p>
                         </div>
                         <div className="flex flex-col gap-5 2xl:gap-7">
-                            <h2 className="2xl:max-w-3xl text-secondary dark:text-white">Preserving Our Legacy</h2>
-                            <p className="2xl:max-w-sm text-secondary/70 dark:text-white/70">
+                            <h2 className="2xl:max-w-3xl text-black dark:text-white">Preserving Our Legacy</h2>
+                            <p className="2xl:max-w-sm text-black/70 dark:text-white/70">
                                 The Museum of African Liberation documents the liberation of African countries. Anchored
                                 at Liberation City in Harare, we preserve artifacts, stories, and lived experiences that
                                 shaped Africa's freedom.

@@ -13,12 +13,12 @@
 
   /* color */
   /* color */
-  --color-primary: #C5A059;
-  /* Heritage Gold */
-  --color-secondary: #5D4037;
-  /* Deep Earth */
-  --color-accent: #8D6E63;
-  /* Burnt Ochre */
+  --color-primary: #FFD700;
+  /* SADC Gold (Pantone 11 C) */
+  --color-secondary: #001489;
+  /* SADC Reflex Blue CVC */
+  --color-accent: #00B140;
+  /* SADC Green (Pantone 354 CVC) */
   --color-background: #FDFBF7;
   /* Ivory */
   --color-foreground: #1C1B1A;
@@ -31,8 +31,8 @@
   --color-darkblack: #1C1B1A;
   --color-twilliteblack: #2C2B2A;
   /* Dark Stone */
-  --color-gray: #5D4037;
-  /* Map gray to earth tone for harmony */
+  --color-gray: #001489;
+  /* Map gray to secondary (Blue) for harmony */
 
   /* padding */
   --spacing-35: 35rem;
@@ -118,15 +118,15 @@ body {
   }
 
   h2 {
-    @apply text-4xl md:text-5xl Xxl:text-[56px] font-bold leading-tight text-secondary dark:text-white;
+    @apply text-4xl md:text-5xl Xxl:text-[56px] font-bold leading-tight text-black dark:text-white;
   }
 
   h3 {
-    @apply text-28 Xxl:text-4xl font-bold text-secondary dark:text-white;
+    @apply text-28 Xxl:text-4xl font-bold text-black dark:text-white;
   }
 
   h4 {
-    @apply text-xl md:text-2xl lg:text-28 font-bold text-secondary dark:text-white;
+    @apply text-xl md:text-2xl lg:text-28 font-bold text-black dark:text-white;
   }
 
   h5 {
